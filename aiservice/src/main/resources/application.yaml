@@ -27,3 +27,8 @@ rabbitmq:
     name: ai.exchange
   routing:
     key: ai.routing
+
+gemini:
+  api:
+    url: ${GEMINI_API_URL}
+    key: ${GEMINI_API_KEY}
