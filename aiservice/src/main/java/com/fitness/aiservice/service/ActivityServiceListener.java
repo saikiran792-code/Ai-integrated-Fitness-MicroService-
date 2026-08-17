@@ -13,7 +13,7 @@ public class ActivityServiceListener {
     private final ActivityAiService activityAiService;
     @RabbitListener(queues = "${rabbitmq.queue.name}")
     public void ProcessActivity(Activity activity){
-        log.info("Recevied activity for processing :{}",activity.getId());
+        log.info("Recevied activity for processing :{}" ,activity.getId());
         log.info("Generated the ai answer:{}",activityAiService.generateRecommendations(activity));
     }
 }

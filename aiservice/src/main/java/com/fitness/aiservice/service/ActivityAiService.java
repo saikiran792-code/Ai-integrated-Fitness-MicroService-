@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ActivityAiService {
     private final GeminiService geminiService;
-    String generateRecommendations(Activity activity){
-        String propmt=createPropmtForActivity(activity);
-        String aiResponse=geminiService.getAnswer(propmt);
-        log.info("Response for ai:{}"+aiResponse);
+   public String generateRecommendations(Activity activity){
+        String prompt=createPropmtForActivity(activity);
+        String aiResponse=geminiService.getAnswer(prompt);
+        log.info("Response for ai:{}",aiResponse);
         return aiResponse;
     }
 

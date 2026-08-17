@@ -1,5 +1,6 @@
 package com.fitness.aiservice.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 @Service
 public class GeminiService {
+
     private final WebClient webClient;
     @Value("${gemini.api.url}")
     private String geminiApiUrl;
@@ -15,15 +17,16 @@ public class GeminiService {
     private String geminiApiKey;
 
 
-    public GeminiService(WebClient.Builder webClientBulder) {
+    public GeminiService(WebClient.Builder webClientBulder)
+    {
         this.webClient = webClientBulder.build();
     }
-    public String getAnswer(String quetion){
+    public String getAnswer(String question){
 
         Map<String,Object>requestBody=Map.of(
                 "contents",new Object[]{
                         Map.of("parts",new Object[]{
-                                Map.of("text",quetion)
+                                Map.of("text",question)
                         })
                 }
         );
